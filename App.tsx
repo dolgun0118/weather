@@ -4,24 +4,12 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions,
   ActivityIndicator,
 } from "react-native";
 import * as Location from "expo-location";
 import { Fontisto } from "@expo/vector-icons";
-import { IconProps } from "@expo/vector-icons/build/createIconSet";
-import iconSet from "@expo/vector-icons/build/Fontisto";
-const { width: SCREEN_WIDTH } = Dimensions.get("window");
-const API_KEY = "44ddc4720ff049e7e93470bf9d1d1735";
-const ICONS: { [key: string]: any } = {
-  Clear: "day-sunny",
-  Clouds: "cloudy",
-  Rain: "rain",
-  Atmosphere: "cloudy-gusts",
-  Snow: "snow",
-  Drizzle: "day-rain",
-  Thunderstorm: "lightning",
-};
+import { API_KEY, ICONS } from "./constant";
+import styles from "./styles";
 
 const App = () => {
   const [city, setCity] = useState("Loading...");
@@ -107,44 +95,3 @@ const App = () => {
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "tomato",
-  },
-  city: {
-    flex: 1.2,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  cityName: {
-    fontSize: 60,
-    fontWeight: "500",
-    color: "white",
-  },
-  weather: {
-    // backgroundColor: "blue",
-  },
-  day: {
-    alignItems: "flex-start",
-    width: SCREEN_WIDTH,
-    paddingHorizontal: 20,
-  },
-  temp: {
-    marginTop: 50,
-    fontSize: 100,
-    fontWeight: "600",
-    color: "white",
-  },
-  description: {
-    marginTop: -20,
-    fontSize: 40,
-    color: "white",
-  },
-  tinyText: {
-    marginTop: -10,
-    fontSize: 30,
-    color: "white",
-  },
-});
